@@ -18,11 +18,24 @@
 	<link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_1_0/cdts/cdtsapps.css">
 
 	<style>
+		.social a svg {
+			width: 30px;
+			fill: #91929a;
+		}
 
- .social  a svg {
-      width: 30px;
-      fill: #91929a;
-    }
+		/* Table styling */
+		.table-header-white {
+			background-color: white;
+		}
+
+		.table-header-grey {
+			background-color: #f5f5f5;
+		}
+
+		.table-data {
+			background-color: black;
+			color: white;	
+		}
 	</style>
 </head>
 
@@ -93,30 +106,34 @@
 					
 					<h3>Stats of HI/Max</h3>
 					<table class="table">
-						<caption>Sold Properties and Average Selling Price</caption>
 						<thead>
 							<tr>
-								<th>Year</th>
-								<th>Quebec</th>
-								<th>Ontario</th>
-								<th>Single house</th>
-								<th>Condo</th>
+								<th scope="col" id="empty" class="table-header-white"></th>
+								<th scope="colgroup" colspan="2" id="sold" class="table-header-white">Sold Properties</th>
+								<th scope="colgroup" colspan="2" id="price" class="table-header-white">Average Selling Price</th>
+							</tr>
+							<tr>
+								<th scope="col" id="year" class="table-header-grey">Year</th>
+								<th scope="col" id="qc" headers="sold" class="table-header-grey">Quebec</th>
+								<th scope="col" id="on" headers="sold" class="table-header-grey">Ontario</th>
+								<th scope="col" id="house" headers="price" class="table-header-grey">Single house</th>
+								<th scope="col" id="condo" headers="price" class="table-header-grey">Condo</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>2021</td>
-								<td>50</td>
-								<td>100</td>
-								<td>$500,00</td>
-								<td>189,000</td>
+								<th scope="row" id="y2021" class="table-header-grey">2021</th>
+								<td headers="sold qc y2021" class="table-data">50</td>
+								<td headers="sold on y2021" class="table-data">100</td>
+								<td headers="price house y2021" class="table-data">$500,000</td>
+								<td headers="price condo y2021" class="table-data">$189,000</td>
 							</tr>
 							<tr>
-								<td>2022</td>
-								<td>100</td>
-								<td>200</td>
-								<td>$780,00</td>
-								<td>240,000</td>
+								<th scope="row" id="y2022" class="table-header-grey">2022</th>
+								<td headers="sold qc y2022" class="table-data">100</td>
+								<td headers="sold on y2022" class="table-data">200</td>
+								<td headers="price house y2022" class="table-data">$780,000</td>
+								<td headers="price condo y2022" class="table-data">$240,000</td>
 							</tr>
 						</tbody>
 					</table>
@@ -133,28 +150,28 @@
 			</aside>
 		</div>
 
-		<section class="clear" id="resources">
+		<section class="clear" id="resources" role="region" aria-labelledby="resources-title">
 			<h2>More Resources on How to Choose the Right Agent</h2>
 			<div class="row">
 				<div class="col-md-4">
-					<article>
+					<article id="risk of selling home yourself" aria-labelledby="risk-title" role="article: risk of selling home yourself">
 						<img src="1.png" alt="For sale sign on a small red house model" class="img-responsive">
-						<h3><a href="#">What Are The Risks of Selling a Home Yourself?</a></h3>
+						<h3 id="risk-title"><a href="#">What Are The Risks of Selling a Home Yourself?</a></h3>
 						<p>We've all seen the videos, read the stories, and gasped at the images of people who thought they could conquer a project that would have been better left to the professionals.</p>
 						<a href="#">Read more</a>
 					</article>
 				</div>
 				<div class="col-md-4">
-					<article>
+					<article id="7 questions to ask a real estate agent before you commit" aria-labelledby="questions-title" role="article: 7 questions to ask a real estate agent before you commit">
 						<img src="2.png" alt="Real estate agent meeting with client" class="img-responsive">
-						<h3><a href="#">7 Questions to Ask a Real Estate Agent Before You Commit</a></h3>
+						<h3 id="questions-title"><a href="#">7 Questions to Ask a Real Estate Agent Before You Commit</a></h3>
 						<p>According to research by the National Association of Realtors, there are considerable benefits to working with a real estate agent, including higher sale prices.</p>
 					</article>
 				</div>
 				<div class="col-md-4">
-					<article>
+					<article id="8 reasons to hire an agent when selling your home" aria-labelledby="reasons-title" role="article: 8 reasons to hire an agent when selling your home">
 						<img src="3.png" alt="Agent placing for sale sign" class="img-responsive">
-						<h3><a href="#">8 Reasons to Hire an Agent When Selling Your Home</a></h3>
+						<h3 id="reasons-title"><a href="#">8 Reasons to Hire an Agent When Selling Your Home</a></h3>
 						<p>With all the many different moving parts involved in selling your home, here are eight very valid reasons to have a real estate agent on speed dial.</p>
 					</article>
 				</div>
@@ -173,7 +190,7 @@
 						<li style="list-style: none;" class="social">
 							<a href="#" aria-label="Follow us on Twitter">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
-									<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
 								</svg></a></li>
 						
 					  </ul>	
